@@ -1,0 +1,17 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>GALLERY APP - {{ title }}</title>
+    {% else %}
+    <title>GALLERY APP</title>
+    {%%}
+</head>
+<body>
+    {{% blockcontent %}}
+    <h1>here are ou photos</h1>
+    {%endblock%} 
+</body>
+</html>

@@ -23,3 +23,16 @@ class Location(models.Model):
         verbose_name_plural = 'Locations'
     
     
+class Category(models.Model):
+    category = models.CharField(max_length= 255)
+    
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
+        
+    @classmethod
+    def get_category(cls):
+        categories = cls.objects.all()
+        return categories

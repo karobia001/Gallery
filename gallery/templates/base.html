@@ -1,17 +1,85 @@
 {% load bootstrap3 %}
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+
     {% if title %}
     <title>GALLERY APP - {{ title }}</title>
     {% else %}
     <title>GALLERY APP</title>
-    {%%}
+    {% endif %}
+    {% block styles %}
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+   
+    {% bootstrap_css %}
+    {% endblock %}
 </head>
-<body>
-    {{% blockcontent %}}
-    <h1>here are ou photos</h1>
-    {%endblock%} 
+
+<body style="background-color:black">
+    {% include "navbar.html" %}
+
+    {% block content %}
+            <h2 class="display-4 text-center font-weight-bold text-white" style="color:cornsilk">Welcome to Denno Gallery</h2>
+
+    <div class="container">
+        <div class="row">
+        <!-- displaying News articles -->
+        <!-- <div class="col-md-12">
+            <h2 class="text-center">{{image.category}} in {{image.location}}</h2>
+        </div> -->
+
+        {% for image in images %}
+        <div class="col-md-3">
+            <div class="card zoom">
+              <img src="{{image.image_path.url}}" class="card-img-top thumbnail" alt="..." width="250" height="250px" data-toggle="modal" data-target="#{{image.id}}">
+              <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="exampleModalLabel">{{ image.image_name  }}<br>Shot in :{{image.location}}<br>{{image.category}}</h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                        <img src="{{image.image_path.url}}" class="card-img-top" width="550px" height="500px">  
+                         <p> {{image.description}} <br>Taken in:{{image.pub_date}} </p> 
+                         <p></p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <input type="text" id="myInput" value="{{image.image_path.url}}">
+                            <button  onclick="CopyFunction()">Copy url</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        </div>
+        
+        </div>
+
+
+       
+        {% endfor %}
+        {%endblock%}
+
+    </div>
+    </div>
+
+    
+
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+
+
 </body>
+
 </html>

@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'photo',
         'USER':'moringa',
-        'PASSWORD':'maich',
+        'PASSWORD':'maich001',
         
     }
 }
@@ -125,7 +125,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 
 MEDIA_URL = '/media/'

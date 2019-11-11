@@ -52,7 +52,7 @@ class Category(models.Model):
 class Image(models.Model):
     image_name = models.CharField(max_length=255)
     description = models.TextField()
-    image_file = models.ImageField
+    image_path = models.ImageField(upload_to = 'gallery/',default ='image.png')
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
     pub_date = models.DateTimeField(auto_now_add=True)

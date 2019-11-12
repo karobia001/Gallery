@@ -9,7 +9,8 @@ The user can view differrent pics of diferent places in their catagories.
 
 | Behavior            | Input                         | Output                        | 
 | ------------------- | ----------------------------- | ----------------------------- |
-| searching for catagories | input the catagory shown on the navbar and it takes you to the gallery inputed | 
+| searching for catagories | input the catagory shown on the navbar | it takes you to the gallery inputed | 
+| more info on the images | click on the image | a bigger image appears and it shows its information|
 
 ## Live link
 
@@ -37,7 +38,7 @@ Run the following commands in the same terminal:
 In the same terminal type:
 `python3.6 manage.py runserver`
 
-Open the browser on `http://localhost:8000/`
+Open the browser on `https://dennohpics.herokuapp.com/`
 
 ## Known bugs
 
